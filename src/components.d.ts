@@ -16,20 +16,6 @@ export namespace Components {
          */
         "size": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
     interface HTMLCustomIconElement extends Components.CustomIcon, HTMLStencilElement {
@@ -38,15 +24,8 @@ declare global {
         prototype: HTMLCustomIconElement;
         new (): HTMLCustomIconElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "custom-icon": HTMLCustomIconElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -60,23 +39,8 @@ declare namespace LocalJSX {
          */
         "size"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "custom-icon": CustomIcon;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -84,7 +48,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "custom-icon": LocalJSX.CustomIcon & JSXBase.HTMLAttributes<HTMLCustomIconElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
