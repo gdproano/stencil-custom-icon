@@ -8,9 +8,9 @@ describe('custom-icon', () => {
       html: `<custom-icon></custom-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <custom-icon>
+      <custom-icon color="black">
         <mock:shadow-root>
-          <slot></slot>
+          <i class="icon icon-undefined undefined" style="color: black;"></i>
         </mock:shadow-root>
       </custom-icon>
     `);
