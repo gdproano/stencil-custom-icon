@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CustomIcon {
         /**
+          * The color of the icon
+         */
+        "color": string;
+        /**
           * The name of the icon
          */
         "name": string;
@@ -30,6 +34,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CustomIcon {
+        /**
+          * The color of the icon
+         */
+        "color"?: string;
         /**
           * The name of the icon
          */

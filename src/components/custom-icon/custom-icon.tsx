@@ -1,11 +1,19 @@
-import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 
 @Component({
   tag: 'custom-icon',
   styleUrl: 'custom-icon.css',
   shadow: true,
 })
+
 export class CustomIcon implements ComponentInterface {
+  @Element() iconElement: HTMLElement;
+  /**
+   * The color of the icon
+   */
+  @Prop({
+    reflect: true
+  }) color: string = "black";
   /**
    * The name of the icon
    */
@@ -15,10 +23,21 @@ export class CustomIcon implements ComponentInterface {
    */
   @Prop() size: string;
 
+  @Watch('color')
+  validateName(newValue: string) {
+    console.log(newValue);
+  }
+
+  private icon: HTMLElement;
+
+  componentDidLoad(){
+    this.icon.style.color = this.color;
+  }
+
   render() {
     return (
       <Host>
-        <i class={`icon icon-${this.name} ${this.size}`}></i>
+        <i class={`icon icon-${this.name} ${this.size}`}  ref={el => this.icon = el as HTMLInputElement}></i>
       </Host>
     );
   }
