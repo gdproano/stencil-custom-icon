@@ -21,7 +21,7 @@ export class CustomIcon implements ComponentInterface {
   /**
    * The size of the icon
    */
-  @Prop() size: string;
+  @Prop() size: string = "medium";
 
   @Watch('color')
   validateName(newValue: string) {
