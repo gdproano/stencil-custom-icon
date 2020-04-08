@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'custom-icon',
@@ -22,11 +22,6 @@ export class CustomIcon implements ComponentInterface {
    * The size of the icon
    */
   @Prop() size: string = "medium";
-
-  @Watch('color')
-  validateName(newValue: string) {
-    console.log(newValue);
-  }
 
   private icon: HTMLElement;
 
