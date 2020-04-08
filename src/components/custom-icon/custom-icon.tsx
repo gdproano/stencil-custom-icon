@@ -18,7 +18,7 @@ export class CustomIcon implements ComponentInterface {
   render() {
     return (
       <Host>
-        <ion-icon name={this.name} size={this.size}></ion-icon>
+        <i class={`icon icon-${this.name} ${this.size}`}></i>
       </Host>
     );
   }
